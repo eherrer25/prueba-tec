@@ -24,12 +24,14 @@ Ejecutar los siguientes comandos para levantar docker
  - docker-compose up -d --build
 
 Comando para instalar los paquetes de laravel
- - docker-compose exec nginx composer install
+ - docker-compose exec php composer install
 
 Comando para generar la key de laravel
  - docker-compose exec php php artisan key:generate
 
-Comando para realizar la migracion con los seeders
+Comando para realizar la migración con los seeders (si es primera vez)
+ - docker-compose exec php php artisan migrate —seed
+Para refrescar la migración
  - docker-compose exec php php artisan migrate:fresh —seed
 
 Comando para realizar los test
@@ -42,7 +44,7 @@ Ejecutar los siguientes comandos
  - cd prueba-front
 
 Crear archivo .env.development.local
-Copiar y pegar la siguiente linea
+Copiar y pegar la siguiente línea
  - VITE_API_ENDPOINT = 'http://localhost/api/'
 
 Instalar y ejecutar
